@@ -48,7 +48,7 @@ npm install
 
 ### 1. Initialize the Overseer
 Set up the master control unit and connect to the Solana cluster.
-
+```
 import { SwarmOverseer, NetworkConfig } from '@myrmidon/sdk';
 import { Connection, Keypair } from '@solana/web3.js';
 
@@ -61,10 +61,10 @@ const overseer = new SwarmOverseer(connection, wallet);
 // Sync local Merkle Tree from on-chain events
 await overseer.syncState();
 console.log(`Swarm Ready. Active Agents: ${overseer.getAgentCount()}`);
-
+```
 ### 2. Dispatch Tasks to the Swarm
 Distribute computational tasks to agents based on priority and reputation.
-
+```
 import { Task, Priority } from '@myrmidon/types';
 
 // Define a computational task
@@ -82,7 +82,7 @@ await overseer.dispatch(task);
 overseer.on('TaskCompleted', (result) => {
   console.log(`Worker ${result.workerId} finished task. Hash: ${result.hash}`);
 });
-
+```
 ## API Reference
 
 * `initialize_swarm(depth, buffer)`: Deploys a new Merkle Tree for agent management.
