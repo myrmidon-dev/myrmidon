@@ -1,0 +1,22 @@
+[package]
+name = "myrmidon"
+version = "0.2.0"
+description = "Myrmidon Swarm Protocol"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "myrmidon"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
+spl-account-compression = { version = "0.4.0", features = ["cpi"] }
+solana-program = "1.18"
